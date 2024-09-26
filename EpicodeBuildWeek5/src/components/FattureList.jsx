@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   setInvoices,
   deleteInvoice as deleteInvoiceAction,
-} from "../Store/invoiceSlice";
+} from "../Store/FattureSlice";
 import { getInvoices, deleteInvoice } from "../api";
 
 const InvoiceList = () => {

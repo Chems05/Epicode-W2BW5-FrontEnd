@@ -124,7 +124,6 @@ const AuthForm = () => {
             </>
           )}
 
-          {/* Username, Email e Password richiesti anche nel Login */}
           {isLogin && (
             <div className="mb-3">
               <label htmlFor="username" className="form-label">
