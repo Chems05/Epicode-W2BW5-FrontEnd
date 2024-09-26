@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addInvoice } from "../api";
-import { addInvoice as addInvoiceAction } from "../Store/invoiceSlice";
+import { addInvoice as addInvoiceAction } from "../Store/FattureSlice";
 
 const AddFatture = () => {
   const [formData, setFormData] = useState({
