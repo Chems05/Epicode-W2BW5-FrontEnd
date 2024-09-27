@@ -62,7 +62,7 @@ const FattureList = () => {
     <div>
       <h2>Fatture</h2>
       <ul>
-        {fatture.map((invoice) => (
+        {fatture?.map((invoice) => (
           <li key={invoice.id}>
             {invoice.numero} - {invoice.importo} - {invoice.data} -{" "}
             {invoice.stato}
