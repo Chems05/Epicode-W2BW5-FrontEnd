@@ -26,15 +26,71 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
+          {/* User */}
+          <div className="col-md-4">
+            <div className="card mb-4 shadow-sm">
+              <div className="card-body text-center">
+                <h5 className="card-title">Visualizza User</h5>
+                <p className="card-text">
+                  Visualizza l&apos;elenco di tutti i Users
+                </p>
+                <Link to="/users" className="btn btn-success">
+                  Vai a clienti
+                </Link>
+              </div>
+            </div>
+          </div>
+          {/* Provice */}
+          <div className="col-md-4">
+            <div className="card mb-4 shadow-sm">
+              <div className="card-body text-center">
+                <h5 className="card-title">Visualizza Province</h5>
+                <p className="card-text">
+                  Visualizza l&apos;elenco di tutti i province
+                </p>
+                <Link to="/province" className="btn btn-success">
+                  Vai a clienti
+                </Link>
+              </div>
+            </div>
+          </div>
+          {/* Comuni */}
+          <div className="col-md-4">
+            <div className="card mb-4 shadow-sm">
+              <div className="card-body text-center">
+                <h5 className="card-title">Visualizza Comuni</h5>
+                <p className="card-text">
+                  Visualizza l&apos;elenco di tutti i comuni
+                </p>
+                <Link to="/comuni" className="btn btn-success">
+                  Vai a clienti
+                </Link>
+              </div>
+            </div>
+          </div>
+          {/* Indirizzi */}
+          <div className="col-md-4">
+            <div className="card mb-4 shadow-sm">
+              <div className="card-body text-center">
+                <h5 className="card-title">Visualizza Indirizzi</h5>
+                <p className="card-text">
+                  Visualizza l&apos;elenco di tutti i indirizzi
+                </p>
+                <Link to="/indirizzi" className="btn btn-success">
+                  Vai a clienti
+                </Link>
+              </div>
+            </div>
+          </div>
           {/* Clienti */}
           <div className="col-md-4">
             <div className="card mb-4 shadow-sm">
               <div className="card-body text-center">
-                <h5 className="card-title">Visualizza Clienti</h5>
+                <h5 className="card-title">Visualizza clienti</h5>
                 <p className="card-text">
                   Visualizza l&apos;elenco di tutti i clienti
                 </p>
-                <Link to="/users" className="btn btn-success">
+                <Link to="/clienti" className="btn btn-success">
                   Vai a clienti
                 </Link>
               </div>

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-const ClientiList = () => {
+const Comuni = () => {
   const [indirizzi, setIndirizzi] = useState([]);
 
   const fetchUserList = () => {
-    fetch(`http://localhost:3001/clienti`, {
+    fetch(`http://localhost:3001/comuni`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -22,7 +22,7 @@ const ClientiList = () => {
         console.log("Fatture fetched:", result.content);
         setIndirizzi(result.content);
       })
-      .catch((error) => console.log("Fetch error:", error));
+      .catch((error) => console.slog("Fetch error:", error));
   };
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const ClientiList = () => {
 
   return (
     <div>
-      <h2>ClientiList</h2>
+      <h2>Comuni</h2>
       <ul>
         {indirizzi?.map((invoice) => (
           <li key={invoice.id}>
@@ -44,4 +44,4 @@ const ClientiList = () => {
   );
 };
 
-export default ClientiList;
+export default Comuni;
