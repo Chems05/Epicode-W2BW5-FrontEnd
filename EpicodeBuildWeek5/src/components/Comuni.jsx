@@ -35,8 +35,8 @@ const Comuni = () => {
       <ul>
         {indirizzi?.map((invoice) => (
           <li key={invoice.id}>
-            {invoice.numero} - {invoice.importo} - {invoice.data} -{" "}
-            {invoice.stato}
+            {invoice.idComune} - {invoice.progressivoProvincia} - {invoice.progressivoComune} -{" "}
+            {invoice.nome} - {invoice.provincia}
           </li>
         ))}
       </ul>

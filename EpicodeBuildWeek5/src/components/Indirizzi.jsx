@@ -35,8 +35,8 @@ const Indirizzi = () => {
       <ul>
         {indirizzi?.map((invoice) => (
           <li key={invoice.id}>
-            {invoice.numero} - {invoice.importo} - {invoice.data} -{" "}
-            {invoice.stato}
+            {invoice.idIndirizzo} - {invoice.via} - {invoice.civico} -{" "}
+            {invoice.localita} - {invoice.cap}
           </li>
         ))}
       </ul>
