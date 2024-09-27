@@ -4,7 +4,7 @@ import { setInvoices, deleteInvoice as deleteInvoiceAction } from "../Store/Fatt
 import { getInvoices, deleteInvoice } from "../api"; */
 
 const FattureList = () => {
-  /* const baseUrl = import.meta.env.VITE_APP_BASE_URL; */
+  const baseUrl = import.meta.env.VITE_APP_BASE_URL;
   // const dispatch = useDispatch();
   /* const invoices = useSelector(state => state.invoices.list); */
   const [fatture, setFatture] = useState([]);
@@ -24,13 +24,13 @@ const FattureList = () => {
 
   const fetchFatture = () => {
     console.log("Fetching invoices...");
-    fetch(`http://localhost:3001/fatture`, {
+    fetch(`${baseUrl}/fatture`, {
       method: "GET",
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
+        Authorization: `Bearer ${localStorage.getItem("accessToken")}`
+      }
     })
-      .then((response) => {
+      .then(response => {
         console.log("Response received:", response);
         if (response.ok) {
           return response.json();
@@ -38,11 +38,11 @@ const FattureList = () => {
           throw new Error("Errore nel recupero delle fatture");
         }
       })
-      .then((result) => {
-        console.log("Fatture fetched:", result.data);
-        setFatture(result.data);
+      .then(result => {
+        console.log("Fatture fetched:", result.content);
+        setFatture(result.content);
       })
-      .catch((error) => console.log("Fetch error:", error));
+      .catch(error => console.log("Fetch error:", error));
   };
 
   useEffect(() => {
@@ -62,10 +62,9 @@ const FattureList = () => {
     <div>
       <h2>Fatture</h2>
       <ul>
-        {fatture?.map((invoice) => (
+        {fatture?.map(invoice => (
           <li key={invoice.id}>
-            {invoice.numero} - {invoice.importo} - {invoice.data} -{" "}
-            {invoice.stato}
+            {invoice.numeroFattura} - {invoice.importo} - {invoice.data} - {invoice.statoFattura.nomeStato}
             {/* <button onClick={() => handleDelete(invoice.id)}>Elimina</button> */}
           </li>
         ))}
