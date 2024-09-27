@@ -9,7 +9,7 @@ const AuthForm = () => {
     email: "",
     password: "",
     nome: "",
-    cognome: "",
+    cognome: ""
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -17,28 +17,26 @@ const AuthForm = () => {
 
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     setLoading(true);
     setError("");
     setSuccess("");
 
-    const endpoint = isLogin
-      ? "https://tuo-api.com/login"
-      : "https://tuo-api.com/registrazione";
+    const endpoint = isLogin ? "http://localhost:3001/auth/login" : "http://localhost:3001/auth/register";
 
     try {
       const response = await fetch(endpoint, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formData)
       });
 
       const data = await response.json();
@@ -47,11 +45,7 @@ const AuthForm = () => {
         throw new Error(data.message || "Errore durante l'autenticazione");
       }
 
-      setSuccess(
-        isLogin
-          ? "Login effettuato con successo!"
-          : "Registrazione avvenuta con successo!"
-      );
+      setSuccess(isLogin ? "Login effettuato con successo!" : "Registrazione avvenuta con successo!");
 
       navigate("/dashboard");
 
@@ -60,8 +54,9 @@ const AuthForm = () => {
         email: "",
         password: "",
         nome: "",
-        cognome: "",
+        cognome: ""
       });
+      localStorage.setItem("accessToken", data.accessToken);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -75,7 +70,7 @@ const AuthForm = () => {
       style={{
         backgroundColor: "#4B0082",
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "center"
       }}
     >
       <div className="card p-4" style={{ minWidth: "400px" }}>
@@ -91,96 +86,48 @@ const AuthForm = () => {
                 <label htmlFor="nome" className="form-label">
                   Nome
                 </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="nome"
-                  name="nome"
-                  value={formData.nome}
-                  onChange={handleChange}
-                  required
-                />
+                <input type="text" className="form-control" id="nome" name="nome" value={formData.nome} onChange={handleChange} required />
               </div>
               <div className="mb-3">
                 <label htmlFor="cognome" className="form-label">
                   Cognome
                 </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="cognome"
-                  name="cognome"
-                  value={formData.cognome}
-                  onChange={handleChange}
-                  required
-                />
+                <input type="text" className="form-control" id="cognome" name="cognome" value={formData.cognome} onChange={handleChange} required />
               </div>
             </>
           )}
 
-          <div className="mb-3">
-            <label htmlFor="username" className="form-label">
-              Nome Utente
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="username"
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-              required
-            />
-          </div>
+          {/* {isLogin && (
+            <div className="mb-3">
+              <label htmlFor="username" className="form-label">
+                Nome Utente
+              </label>
+              <input type="text" className="form-control" id="username" name="username" value={formData.username} onChange={handleChange} required />
+            </div>
+          )} */}
 
           <div className="mb-3">
             <label htmlFor="email" className="form-label">
               Email
             </label>
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
+            <input type="email" className="form-control" id="email" name="email" value={formData.email} onChange={handleChange} required />
           </div>
 
           <div className="mb-3">
             <label htmlFor="password" className="form-label">
               Password
             </label>
-            <input
-              type="password"
-              className="form-control"
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
+            <input type="password" className="form-control" id="password" name="password" value={formData.password} onChange={handleChange} required />
           </div>
 
-          <button
-            type="submit"
-            className="btn btn-primary w-100"
-            disabled={loading}
-          >
+          <button type="submit" className="btn btn-primary w-100" disabled={loading}>
             {loading ? "Caricamento..." : isLogin ? "Accedi" : "Registrati"}
           </button>
         </form>
 
         <div className="mt-3 text-center">
-          <button
-            className="btn btn-link"
-            onClick={() => setIsLogin((prev) => !prev)}
-            disabled={loading}
-          >
-            {isLogin
-              ? "Non hai un account? Registrati!"
-              : "Hai già un account? Accedi!"}
+          <button className="btn btn-link" onClick={() => setIsLogin(prev => !prev)} disabled={loading}>
+            {isLogin ? "Non hai un account? Registrati!" : "Hai già un account? Accedi!"}
           </button>
         </div>
       </div>
