@@ -6,6 +6,7 @@ import FattureList from "./components/FattureList"; // Importa il componente per
 import AddFatture from "./components/AddFatture"; // Componente per aggiungere una fattura (da creare)
 import EmailPage from "./components/EmailPage";
 import Dashboard from "./components/Dashboard";
+import UserList from "./components/UserList";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/fatture/add" element={<AddFatture />} />
         <Route path="/email" element={<EmailPage />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/users" element={<UserList />} />
       </Routes>
     </Router>
   );

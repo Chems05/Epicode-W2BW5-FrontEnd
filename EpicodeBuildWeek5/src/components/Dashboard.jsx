@@ -10,25 +10,48 @@ const Dashboard = () => {
         <div className="alert alert-info text-center" role="alert">
           Benvenuto nella dashboard! Seleziona un opzione per iniziare.
         </div>
+
         <div className="row">
+          {/* Card: Visualizza Fatture */}
           <div className="col-md-4">
             <div className="card mb-4 shadow-sm">
               <div className="card-body text-center">
                 <h5 className="card-title">Visualizza Fatture</h5>
-                <p className="card-text">Guarda la lista delle fatture e gestisci i tuoi pagamenti.</p>
+                <p className="card-text">
+                  Guarda la lista delle fatture e gestisci i tuoi pagamenti.
+                </p>
                 <Link to="/fatture" className="btn btn-primary">
                   Vai alle Fatture
                 </Link>
               </div>
             </div>
           </div>
+
+          {/* Card: Aggiungi Fattura */}
           <div className="col-md-4">
             <div className="card mb-4 shadow-sm">
               <div className="card-body text-center">
                 <h5 className="card-title">Aggiungi Fattura</h5>
-                <p className="card-text">Inserisci una nuova fattura per un cliente.</p>
+                <p className="card-text">
+                  Inserisci una nuova fattura per un cliente.
+                </p>
                 <Link to="/invoices/add" className="btn btn-success">
                   Aggiungi Fattura
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Card: Gestisci Utenti */}
+          <div className="col-md-4">
+            <div className="card mb-4 shadow-sm">
+              <div className="card-body text-center">
+                <h5 className="card-title">Gestisci Utenti</h5>
+                <p className="card-text">
+                  Visualizza e gestisci la lista degli utenti.
+                </p>
+                <Link to="/users" className="btn btn-info">
+                  Vai agli Utenti
                 </Link>
               </div>
             </div>
