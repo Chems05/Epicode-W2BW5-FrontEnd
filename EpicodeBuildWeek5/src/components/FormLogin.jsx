@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const AuthForm = () => {
+  const baseUrl = import.meta.env.VITE_APP_BASE_URL;
+
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
     username: "",
@@ -28,7 +30,7 @@ const AuthForm = () => {
     setError("");
     setSuccess("");
 
-    const endpoint = isLogin ? "http://localhost:3001/auth/login" : "http://localhost:3001/auth/register";
+    const endpoint = isLogin ? `${baseUrl}/auth/login` : `${baseUrl}/auth/register`;
 
     try {
       const response = await fetch(endpoint, {
