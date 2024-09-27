@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-const ClientiList = () => {
+const Indirizzi = () => {
   const [indirizzi, setIndirizzi] = useState([]);
 
   const fetchUserList = () => {
-    fetch(`http://localhost:3001/clienti`, {
+    fetch(`http://localhost:3001/indirizzi`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -31,7 +31,7 @@ const ClientiList = () => {
 
   return (
     <div>
-      <h2>ClientiList</h2>
+      <h2>Indirizzi</h2>
       <ul>
         {indirizzi?.map((invoice) => (
           <li key={invoice.id}>
@@ -44,4 +44,4 @@ const ClientiList = () => {
   );
 };
 
-export default ClientiList;
+export default Indirizzi;
