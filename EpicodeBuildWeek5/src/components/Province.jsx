@@ -35,8 +35,8 @@ const Province = () => {
       <ul>
         {indirizzi?.map((invoice) => (
           <li key={invoice.id}>
-            {invoice.numero} - {invoice.importo} - {invoice.data} -{" "}
-            {invoice.stato}
+            {invoice.idProvincia} - {invoice.nome} - {invoice.sigla} -{" "}
+            {invoice.regione}
           </li>
         ))}
       </ul>
