@@ -32,12 +32,12 @@ const UserList = () => {
 
   return (
     <div>
-      <h2>Clienti</h2>
+      <h2>Users</h2>
       <ul>
         {users?.map((invoice) => (
           <li key={invoice.id}>
-            {invoice.numero} - {invoice.importo} - {invoice.data} -{" "}
-            {invoice.stato}
+            {invoice.id} - {invoice.nome} - {invoice.cognome} - {invoice.email}{" "}
+            - {invoice.username}
           </li>
         ))}
       </ul>
