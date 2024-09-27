@@ -15,10 +15,8 @@ const Dashboard = () => {
             <div className="card mb-4 shadow-sm">
               <div className="card-body text-center">
                 <h5 className="card-title">Visualizza Fatture</h5>
-                <p className="card-text">
-                  Guarda la lista delle fatture e gestisci i tuoi pagamenti.
-                </p>
-                <Link to="/invoices" className="btn btn-primary">
+                <p className="card-text">Guarda la lista delle fatture e gestisci i tuoi pagamenti.</p>
+                <Link to="/fatture" className="btn btn-primary">
                   Vai alle Fatture
                 </Link>
               </div>
@@ -28,9 +26,7 @@ const Dashboard = () => {
             <div className="card mb-4 shadow-sm">
               <div className="card-body text-center">
                 <h5 className="card-title">Aggiungi Fattura</h5>
-                <p className="card-text">
-                  Inserisci una nuova fattura per un cliente.
-                </p>
+                <p className="card-text">Inserisci una nuova fattura per un cliente.</p>
                 <Link to="/invoices/add" className="btn btn-success">
                   Aggiungi Fattura
                 </Link>

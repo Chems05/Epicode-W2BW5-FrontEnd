@@ -1,13 +1,13 @@
-const API_URL = "http://localhost:8080/api"; // Cambia la porta se necessario
+const baseUrl = import.meta.env.VITE_APP_BASE_URL;
 
 // Funzione per la registrazione
-export const register = async (data) => {
-  const response = await fetch(`${API_URL}/register`, {
+export const register = async data => {
+  const response = await fetch(`${baseUrl}/register`, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json"
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(data)
   });
   if (!response.ok) {
     throw new Error("Errore durante la registrazione");
@@ -16,13 +16,13 @@ export const register = async (data) => {
 };
 
 // Funzione per il login
-export const login = async (data) => {
-  const response = await fetch(`${API_URL}/login`, {
+export const login = async data => {
+  const response = await fetch(`${baseUrl}/login`, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json"
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(data)
   });
   if (!response.ok) {
     throw new Error("Errore durante il login");
@@ -32,11 +32,11 @@ export const login = async (data) => {
 
 // Funzione per ottenere le fatture
 export const getInvoices = async () => {
-  const response = await fetch(`${API_URL}/invoices`, {
+  const response = await fetch(`${baseUrl}/fatture`, {
     method: "GET",
     headers: {
-      Authorization: `Bearer ${localStorage.getItem("token")}`, // Aggiungere il token
-    },
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}` // Aggiungere il token
+    }
   });
   if (!response.ok) {
     throw new Error("Errore nel recupero delle fatture");
@@ -45,14 +45,14 @@ export const getInvoices = async () => {
 };
 
 // Funzione per aggiungere una fattura
-export const addInvoice = async (invoice) => {
-  const response = await fetch(`${API_URL}/invoices`, {
+export const addInvoice = async invoice => {
+  const response = await fetch(`${baseUrl}/invoices`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      Authorization: `Bearer ${localStorage.getItem("token")}`
     },
-    body: JSON.stringify(invoice),
+    body: JSON.stringify(invoice)
   });
   if (!response.ok) {
     throw new Error("Errore nell'aggiunta della fattura");
@@ -62,13 +62,13 @@ export const addInvoice = async (invoice) => {
 
 // Funzione per modificare una fattura
 export const updateInvoice = async (id, invoice) => {
-  const response = await fetch(`${API_URL}/invoices/${id}`, {
+  const response = await fetch(`${baseUrl}/invoices/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      Authorization: `Bearer ${localStorage.getItem("token")}`
     },
-    body: JSON.stringify(invoice),
+    body: JSON.stringify(invoice)
   });
   if (!response.ok) {
     throw new Error("Errore nella modifica della fattura");
@@ -77,12 +77,12 @@ export const updateInvoice = async (id, invoice) => {
 };
 
 // Funzione per eliminare una fattura
-export const deleteInvoice = async (id) => {
-  const response = await fetch(`${API_URL}/invoices/${id}`, {
+export const deleteInvoice = async id => {
+  const response = await fetch(`${baseUrl}/invoices/${id}`, {
     method: "DELETE",
     headers: {
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
+      Authorization: `Bearer ${localStorage.getItem("token")}`
+    }
   });
   if (!response.ok) {
     throw new Error("Errore nell'eliminazione della fattura");
