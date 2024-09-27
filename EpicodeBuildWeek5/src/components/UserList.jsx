@@ -20,8 +20,8 @@ const UserList = () => {
         }
       })
       .then((result) => {
-        console.log("Fatture fetched:", result.data);
-        setUsers(result.data);
+        console.log("Fatture fetched:", result.content);
+        setUsers(result.content);
       })
       .catch((error) => console.log("Fetch error:", error));
   };
@@ -34,7 +34,7 @@ const UserList = () => {
     <div>
       <h2>Fatture</h2>
       <ul>
-        {users.map((invoice) => (
+        {users?.map((invoice) => (
           <li key={invoice.id}>
             {invoice.numero} - {invoice.importo} - {invoice.data} -{" "}
             {invoice.stato}
