@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const AuthForm = () => {
@@ -14,6 +15,8 @@ const AuthForm = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -25,7 +28,9 @@ const AuthForm = () => {
     setError("");
     setSuccess("");
 
-    const endpoint = isLogin ? "ENDPOINT_LOGIN" : "ENDPOINT_REGISTRAZIONE";
+    const endpoint = isLogin
+      ? "https://tuo-api.com/login"
+      : "https://tuo-api.com/registrazione";
 
     try {
       const response = await fetch(endpoint, {
@@ -47,6 +52,9 @@ const AuthForm = () => {
           ? "Login effettuato con successo!"
           : "Registrazione avvenuta con successo!"
       );
+
+      navigate("/dashboard");
+
       setFormData({
         username: "",
         email: "",
@@ -107,39 +115,23 @@ const AuthForm = () => {
                   required
                 />
               </div>
-              <div className="mb-3">
-                <label htmlFor="username" className="form-label">
-                  Nome Utente
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="username"
-                  name="username"
-                  value={formData.username}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
             </>
           )}
 
-          {isLogin && (
-            <div className="mb-3">
-              <label htmlFor="username" className="form-label">
-                Nome Utente
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="username"
-                name="username"
-                value={formData.username}
-                onChange={handleChange}
-                required
-              />
-            </div>
-          )}
+          <div className="mb-3">
+            <label htmlFor="username" className="form-label">
+              Nome Utente
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="username"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
           <div className="mb-3">
             <label htmlFor="email" className="form-label">
@@ -187,8 +179,8 @@ const AuthForm = () => {
             disabled={loading}
           >
             {isLogin
-              ? "Non hai un account? Registrati"
-              : "Hai già un account? Accedi"}
+              ? "Non hai un account? Registrati!"
+              : "Hai già un account? Accedi!"}
           </button>
         </div>
       </div>

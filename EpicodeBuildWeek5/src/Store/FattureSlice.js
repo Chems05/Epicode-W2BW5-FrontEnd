@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const invoiceSlice = createSlice({
+const FattureSlice = createSlice({
   name: "invoices",
   initialState: {
     list: [],
@@ -29,5 +29,5 @@ const invoiceSlice = createSlice({
 });
 
 export const { setInvoices, addInvoice, updateInvoice, deleteInvoice } =
-  invoiceSlice.actions;
-export default invoiceSlice.reducer;
+  FattureSlice.actions;
+export default FattureSlice.reducer;

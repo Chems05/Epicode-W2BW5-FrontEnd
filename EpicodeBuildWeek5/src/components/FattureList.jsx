@@ -6,7 +6,7 @@ import {
 } from "../Store/FattureSlice";
 import { getInvoices, deleteInvoice } from "../api";
 
-const InvoiceList = () => {
+const FattureList = () => {
   const dispatch = useDispatch();
   const invoices = useSelector((state) => state.invoices.list);
 
@@ -48,4 +48,4 @@ const InvoiceList = () => {
   );
 };
 
-export default InvoiceList;
+export default FattureList;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom"; // Se necessario per aggiungere link
 
 const EmailPage = () => {
@@ -37,7 +37,8 @@ const EmailPage = () => {
     <div>
       <section
         className="head text-white text-center py-4"
-        style={{ backgroundColor: "#9931cc" }}>
+        style={{ backgroundColor: "#9931cc" }}
+      >
         <div className="container">
           <h1 className="display-4 fw-bold">Richiedi un preventivo</h1>
         </div>
@@ -87,12 +88,14 @@ const EmailPage = () => {
                       name="description"
                       className="form-control"
                       placeholder="Vuoi delle informazioni aggiuntive? Inseriscile qui!"
-                      rows="4"></textarea>
+                      rows="4"
+                    ></textarea>
                   </div>
 
                   <button
                     type="submit"
-                    className="btn btn-warning btn-lg w-100">
+                    className="btn btn-warning btn-lg w-100"
+                  >
                     Invia richiesta
                   </button>
                 </form>
