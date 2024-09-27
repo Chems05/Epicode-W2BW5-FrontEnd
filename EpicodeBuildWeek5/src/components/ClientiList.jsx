@@ -35,8 +35,11 @@ const ClientiList = () => {
       <ul>
         {indirizzi?.map((invoice) => (
           <li key={invoice.id}>
-            {invoice.numero} - {invoice.importo} - {invoice.data} -{" "}
-            {invoice.stato}
+            {invoice.nomeSocieta} - {invoice.partitaIva} - {invoice.email} -{" "}
+            {invoice.dataInserimento} - {invoice.dataUltimoContatto} -{" "}
+            {invoice.fatturatoAnnuale} - {invoice.pec} - {invoice.telefono} -{" "}
+            {invoice.emailContatto} - {invoice.nomeContatto} - {invoice.cognome}{" "}
+            - {invoice.telefonoContatto} - {invoice.logoAziendale}
           </li>
         ))}
       </ul>
