@@ -26,21 +26,7 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-
-          {/* Card: Aggiungi Fattura */}
-          <div className="col-md-4">
-            <div className="card mb-4 shadow-sm">
-              <div className="card-body text-center">
-                <h5 className="card-title">Aggiungi Fattura</h5>
-                <p className="card-text">
-                  Inserisci una nuova fattura per un cliente.
-                </p>
-                <Link to="/invoices/add" className="btn btn-success">
-                  Aggiungi Fattura
-                </Link>
-              </div>
-            </div>
-          </div>
+          {/* Clienti */}
           <div className="col-md-4">
             <div className="card mb-4 shadow-sm">
               <div className="card-body text-center">
@@ -48,7 +34,7 @@ const Dashboard = () => {
                 <p className="card-text">
                   Visualizza l&apos;elenco di tutti i clienti
                 </p>
-                <Link to="/invoices/add" className="btn btn-success">
+                <Link to="/users" className="btn btn-success">
                   Vai a clienti
                 </Link>
               </div>
